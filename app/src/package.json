@@ -1,4 +1,24 @@
 {
-    "name": "LWApp",
-    "main": "index.html"
-  }
+  "main": "index.html", 
+  "name": "Light Weight Desktop App",
+  "description": "Light weigt desktop application",
+  "version": "0.0.1",
+  "keywords": [ "light", "desktop" ],  
+  "window": {
+    "title": "Light Weight Desktop App",
+    "icon": "",
+    "toolbar": true,
+    "frame": true,
+    "width": 1008,
+    "height": 750,
+    "position": "center",
+    "min_width": 400,
+    "min_height": 200
+  },
+  "webkit": {
+    "plugin": true,
+    "java": false,
+    "page-cache": false    
+  },
+  "chromium-args" :"-allow-file-access-from-files"
+}
