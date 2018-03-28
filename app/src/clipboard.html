@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <script type="text/javascript"  src="js/hotKey.js"></script>
   <script type="text/javascript" src="js/clipborad.js"></script>
   <script type="text/javascript" src="js/menu.js"></script>
   <script>
 
-  const { execFile } = require('child_process');
-
-  registerGlobalKey("CTRL+1", function (){
+  registerGlobalKey("CTRL+2", function (){  
+    const { execFile } = require('child_process');
     const child = execFile('ClipBoardApp.exe', ['ctrl+c'], (error, stdout, stderr) => {
       if (error) {
         alert(error);
@@ -17,21 +15,21 @@
         for(var i in clipdataList){
           addMenuItem(JSON.stringify(clipdataList[i]));  
         }
-        menu.popup(100, 100);
+        menu.popup(1, 1);
       }
     });
   });
 
-  registerGlobalKey("CTRL+2", function (){
-    const child = execFile('ClipBoardApp.exe', ['ctrl+v'], (error, stdout, stderr) => {
-      if (error) {
-        alert(error);
-      }else{
-        //alert(stdout);
-      }
-    });
-  });
+  registerGlobalKey("CTRL+1", function (){
+      //var win = nw.Window.get();
+      var clipdataList = getClipText();
 
+      for(var i in clipdataList){
+        addMenuItem(JSON.stringify(clipdataList[i]));  
+      }
+      menu.popup(1, 1);
+  });
+  
   </script>
 <head>
   <meta charset="utf-8">
@@ -63,9 +61,8 @@
           </ul>
         </div>
       </nav>
-      
-      <button class="btn btn-light" > Set  </button>
-      
+
+      <!-- Ctrl+V:<textarea onkeydown="keyListener(event);">粘贴粘贴</textarea>  -->
 </body>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

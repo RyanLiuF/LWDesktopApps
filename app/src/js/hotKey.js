@@ -62,3 +62,13 @@ registerGlobalKey("CTRL+P", function (){
       alert(JSON.stringify(param));
     } );    
 });
+
+registerGlobalKey("F8", function (){
+    var win = nw.Window.get();
+    win.setAlwaysOnTop(true);
+});
+
+registerGlobalKey("F9", function (){
+    var win = nw.Window.get();
+    win.setAlwaysOnTop(false);
+});
